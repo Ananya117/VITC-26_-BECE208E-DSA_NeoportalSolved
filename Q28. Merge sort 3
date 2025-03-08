@@ -22,4 +22,111 @@ Output format :
 The output prints a single line containing the counts of smaller elements for each value in the array, separated by a space.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#include <stdio.h>
+
+void countarray(int arr[], int n, int count[]){
+    for(int i=0; i<n; i++){
+        count[i]=0;
+        for(int j=i + 1; j<n; j++){
+            if(arr[j]<arr[i]){
+                count[i]++;
+            }
+        }
+    }
+}
+
+int main(){
+    int n;
+    scanf("%d", &n);
+    int arr[n];
+    for(int i=0; i<n; i++){
+        scanf("%d", &arr[i]);
+    }
+    int count[n];
+    countarray(arr, n, count);
+    for(int i=0; i<n; i++){
+        printf("%d ", count[i]);
+    }
+    return 0;
+}
+
+------------------------------------------
+
+#include <stdio.h>
+
+void merge(int arr[], int left, int mid, int right, int count[], int index[]) {
+    int n1 = mid - left + 1;
+    int n2 = right - mid;
+    
+    int l[n1], r[n2], leftIdx[n1], rightIdx[n2];
+    
+    // Copy values and indices to temp arrays
+    for(int i = 0; i < n1; i++) {
+        l[i] = arr[left + i];
+        leftIdx[i] = index[left + i];
+    }
+    for(int i = 0; i < n2; i++) {
+        r[i] = arr[mid + 1 + i];
+        rightIdx[i] = index[mid + 1 + i];
+    }
+    
+    int i = 0, j = 0, k = left;
+    int rightcount = 0;
+
+    while (i < n1 && j < n2) {
+        if (l[i] <= r[j]) {
+            count[leftIdx[i]] += rightcount;
+            arr[k] = l[i];
+            index[k++] = leftIdx[i];
+            i++;
+        } else {
+            arr[k] = r[j];
+            index[k++] = rightIdx[j];
+            j++;
+            rightcount++;  // Every right-side element before left means it's smaller
+        }
+    }
+
+    while (i < n1) {
+        count[leftIdx[i]] += rightcount;
+        arr[k] = l[i];
+        index[k++] = leftIdx[i];
+        i++;
+    }
+
+    while (j < n2) {
+        arr[k] = r[j];
+        index[k++] = rightIdx[j];
+        j++;
+    }
+}
+
+void mergesort(int arr[], int left, int right, int count[], int index[]) {
+    if (left < right) {
+        int mid = left + (right - left) / 2;
+        mergesort(arr, left, mid, count, index);
+        mergesort(arr, mid + 1, right, count, index);
+        merge(arr, left, mid, right, count, index);
+    }
+}
+
+int main() {
+    int n;
+    scanf("%d", &n);
+    int arr[n], count[n], index[n];
+
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+        count[i] = 0;
+        index[i] = i;  // Store original indices
+    }
+
+    mergesort(arr, 0, n - 1, count, index);
+
+    for (int i = 0; i < n; i++) {
+        printf("%d ", count[i]);
+    }
+    
+    return 0;
+}
 
