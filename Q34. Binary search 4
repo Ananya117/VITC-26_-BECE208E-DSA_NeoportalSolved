@@ -1,0 +1,21 @@
+Imagine you are working on a project to help a library manage its collection of books efficiently. As part of this project, you need to develop a program to assist the library staff in finding specific books in their extensive catalogue.
+
+
+
+The library's book collection is organized in such a way that each book is assigned a unique numerical identifier. The library staff has provided you with a list of these identifiers, and you need to write a program to help them find a book's identifier efficiently.
+
+
+
+So, you decide to implement a binary search algorithm using recursion to quickly locate books based on their unique identifiers.
+
+Input format :
+The first line of input contains an integer N, representing the number of books in the library's collection.
+
+The second line consists of N space-separated integers, where each integer represents the unique identifier of a book in the library's collection.
+
+The third line contains a single integer target, representing the unique identifier of the book the library staff is searching for.
+
+Output format :
+If the book with the identifier target is found in the library's collection, the output prints the index (0-based) of the book in the collection.
+
+If the book is not found, print "Not present".
