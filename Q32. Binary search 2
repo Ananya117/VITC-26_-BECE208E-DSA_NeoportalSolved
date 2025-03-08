@@ -1,0 +1,17 @@
+Navigating through a bustling city, a traveller seeks to ascertain the availability of a particular bus number within a list of bus numbers. 
+
+
+
+In your role as a programmer aiding the traveller, your objective is to develop a program that employs the binary search approach to determine whether the provided bus number can be located within the list.
+
+Input format :
+The first line consists of an integer n, representing the number of bus numbers.
+
+The second line consists of n space-separated integers, representing the list of bus numbers.
+
+The third line consists of an integer x, representing the bus number to search.
+
+Output format :
+If the bus number is found in the list, print "Bus No. found at index " followed by the index(0-indexed).
+
+Otherwise, print "Bus No. Not found".
