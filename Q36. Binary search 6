@@ -1,0 +1,15 @@
+A fitness tracking application aims to motivate users by highlighting their progress in physical activity. The application focuses on users' daily step counts, which are tracked over a series of days.
+
+
+
+The goal is to develop a program that efficiently searches through sorted arrays of daily step counts to find and display instances where a user's step count has increased from one day to the next. This solution should employ a binary search algorithm to enhance performance, which is especially beneficial for users with a long history of tracked data.
+
+Input format :
+The first line of input consists of an integer N, representing the number of days for which step counts are tracked.
+
+The second line consists of N distinct space-separated integers, representing the list of daily step counts.
+
+Output format :
+The output prints "Consecutive step counts: " followed by the step counts.
+
+If no consecutive counts were found, print "No consecutive step counts found."
