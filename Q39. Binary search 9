@@ -1,0 +1,13 @@
+You work for a tech company that manages a large collection of software versions. Each version is assigned a unique number, and the versions are initially sorted in ascending order. However, due to software deployment processes, the list of versions may get rotated. Occasionally, the list may contain duplicate version numbers.
+
+
+
+Your task is to determine the smallest version number in the rotated list. The rotation could be any number of positions, and you need to find the minimum version number efficiently.
+
+Input format :
+The first line contains an integer n, representing the number of software versions (length of the array).
+
+The second line contains n space-separated integers representing the version numbers in the rotated list. This array may contain duplicates.
+
+Output format :
+The output prints a single integer representing the smallest version number in the rotated list.
